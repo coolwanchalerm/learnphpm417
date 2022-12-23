@@ -34,30 +34,47 @@
             </div>
             
         </div>
-       
+       <?php
+        include 'inc/conn.php';
+        $id = $_GET["page_id"];
+        $stmt = $conn->query("SELECT * FROM tbl_post WHERE post_id = $id");
+        $stmt->execute();
+        $re = $stmt->fetch(PDO::FETCH_ASSOC);
+       ?>
         <div class="card mb-3 " >
           
             <div class="card-body bg-success bg-opacity-25  text-dark">
-              <h6 class="fw-semibold">ไผหม่าข้าวเปลือกมา 4 กัน</h6>
-              <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <footer class="blockquote-footer mt-1">ชื่อผู้โพสต์ </footer>
+              <h6 class="fw-semibold"><?=$re['post_title']?></h6>
+              <p class="card-text "><?=$re['post_detail']?></p>
+              <footer class="blockquote-footer mt-1"><?=$re['post_by']?> </footer>
             </div>
             
         </div>
+        
         <div class="col-lg-12">
           <h4 class="my-4">Comments</h4>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="card mb-1" >
-                    <div class="card-body  text-dark bg-light">
-                      <h6>ความเห็นจากคุณ</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <button type="button" class="btn float-end"><i class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+          $id = $_GET["page_id"];
+          $stmt_comment = $conn->query("SELECT * FROM tbl_comment WHERE comment_post = $id");
+          $stmt_comment->execute();
+          if($stmt_comment->rowCount() > 1){
+            $comments = $stmt_comment->fetchALL();
+              foreach($comments as $comment){ ?>
+              <div class="row">
+                  <div class="col">
+                      <div class="card mb-1" >
+                          <div class="card-body  text-dark bg-light">
+                            <h6>ความเห็นจากคุณ : <?=$comment['comment_by']?></h6>
+                            <p class="card-text"><?=$comment['comment_msg']?></p>
+                            <button type="button" class="btn float-end"><i class="fa-regular fa-trash-can"></i></button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        
+            <?php }}?>
+        
         
         <div class="col-lg-12">
           <h4 class="my-4">แสดงความคิดเห็น</h4>

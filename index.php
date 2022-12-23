@@ -18,26 +18,41 @@
             
         </div>
         
+        <?php
+          $sql = 'SELECT * FROM tbl_post';
+          $stmt = $conn->prepare($sql);
+          $stmt->execute();
+          if($stmt->rowCount() > 1){
+          $result = $stmt->fetchAll();
+            foreach($result as $re){ ?>
 
-        <div class="row mb-3">
-            <div class="col">
-                <div class="card bg-light" >
-                    <div class="row">
-                        <div class="col">
-                            <div class="card-body">
-                                <h5 class="card-title">ไผหม่าข้าวเปลือกมา 4 กัน</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="page.html" class="btn btn-success">อ่านบทความ</a>
-                                <button type="button" class="btn btn-danger">
-                                    <i class="fa-solid fa-trash-can"></i> ลบ
-                                  </button>
-                                  
-                            </div>
-                        </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="card bg-light" >
+                      <div class="row">
+                          <div class="col">
+                              <div class="card-body">
+                                  <h5 class="card-title"><?=$re['post_title']?></h5>
+                                  <p class="card-text"><?=$re['post_detail']?></p>
+                                  <a href="page.php?page_id=<?=$re['post_id']?>" class="btn btn-success">อ่านบทความ</a>
+                                  <button type="button" class="btn btn-danger">
+                                      <i class="fa-solid fa-trash-can"></i> ลบ
+                                    </button>
+                                    
+                              </div>
+                          </div>
+                    </div>
                   </div>
                 </div>
-            </div>
-        </div>
+              </div>
+         <?php }
+         }else{
+
+            echo "no record";
+          }
+          
+        ?>
+        
     </div>
     <?php 
      include 'inc/footer.php';
