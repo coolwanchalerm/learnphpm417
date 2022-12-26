@@ -7,6 +7,7 @@
   <body>
     <?php 
      include 'inc/nav.php';
+     session_start();
     ?>
     <!-- main -->
     
@@ -14,6 +15,7 @@
         <div class="row text-center callout callout-info">
             <div class="h2 pb-2 mb-4 text-success border-bottom border-success">
                 สร้างควมม่วนให้บ้านเฮา ด้วยการเว้าพื้น
+                <?=$_SESSION['userLogin']?>
             </div>
             
         </div>

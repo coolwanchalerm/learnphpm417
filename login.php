@@ -34,21 +34,27 @@
             
         </div>
         <div class="row p-5 border border-success rounded-2 shadow-lg">
-            <form>
+          <?php if (isset($error_message)) { ?>
+            <div class="alert alert-danger" role="alert">
+            <?php echo $error_message; ?>
+            </div>
+          <?php }?>
+          
+            <form method="POST" action="inc/checkLogin.php">
                 <div class="mb-3">
                   <label  class="form-label">Username</label>
-                  <input type="text" class="form-control" >
+                  <input type="text" name="username" class="form-control" >
                   <div  class="form-text text-danger">error msg</div>
                 </div>
                 <div class="mb-3">
                   <label  class="form-label">Password</label>
-                  <input type="password" class="form-control">
+                  <input type="password" name="password" class="form-control">
                   <div  class="form-text text-danger">error msg</div>
                 </div>
                 <div class="mb-3 ">
                   <span>หากคุณยังไม่เป็นสมาชิก <a href="register.html">คลิกที่นี่</a> เพื่อสมัครสมาชิก</span>
                 </div>
-                <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+                <button type="submit" name="submit" class="btn btn-success">เข้าสู่ระบบ</button>
               </form>
         </div>
     </div>
