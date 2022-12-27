@@ -47,7 +47,7 @@
               foreach($comments as $comment){ ?>
               <div class="row">
                   <div class="col">
-                      <div class="card mb-1" >
+                      <div class="card mb-3" >
                           <div class="card-body  text-dark bg-light">
                             <h6>ความเห็นจากคุณ : <?=$comment['comment_by']?></h6>
                             <p class="card-text"><?=$comment['comment_msg']?></p>
