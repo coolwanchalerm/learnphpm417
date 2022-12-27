@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <?php 
+  <?php
+  session_start(); 
   include 'inc/conn.php';
   include 'inc/header.php';
   ?>
   <body>
     <?php 
      include 'inc/nav.php';
-     session_start();
+     
     ?>
     <!-- main -->
     
@@ -15,7 +16,7 @@
         <div class="row text-center callout callout-info">
             <div class="h2 pb-2 mb-4 text-success border-bottom border-success">
                 สร้างควมม่วนให้บ้านเฮา ด้วยการเว้าพื้น
-                <?=$_SESSION['userLogin']?>
+                <?php if(isset($_SESSION['userLogin'])){ echo $_SESSION['userLogin']; }?>
             </div>
             
         </div>
@@ -37,9 +38,12 @@
                                   <h5 class="card-title"><?=$re['post_title']?></h5>
                                   <p class="card-text"><?=$re['post_detail']?></p>
                                   <a href="page.php?page_id=<?=$re['post_id']?>" class="btn btn-success">อ่านบทความ</a>
-                                  <button type="button" class="btn btn-danger">
+                                  <?php if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == "admin"){?>
+                                    <button type="button" class="btn btn-danger">
                                       <i class="fa-solid fa-trash-can"></i> ลบ
                                     </button>
+                                  <?php } ?>
+                                  
                                     
                               </div>
                           </div>

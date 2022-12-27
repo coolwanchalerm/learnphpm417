@@ -26,6 +26,7 @@
         </nav>
 
     <!-- main -->
+    <?php session_start(); ?>
     <div class="container mt-5">
         <div class="row text-center callout callout-info">
             <div class="h2 text-success ">
@@ -34,9 +35,9 @@
             
         </div>
         <div class="row p-5 border border-success rounded-2 shadow-lg">
-          <?php if (isset($error_message)) { ?>
+        <?php if (isset($_SESSION['err'])) { ?>
             <div class="alert alert-danger" role="alert">
-            <?php echo $error_message; ?>
+            <?=$_SESSION['err']; unset($_SESSION['err']);?>
             </div>
           <?php }?>
           
@@ -56,6 +57,7 @@
                 </div>
                 <button type="submit" name="submit" class="btn btn-success">เข้าสู่ระบบ</button>
               </form>
+              
         </div>
     </div>
 
