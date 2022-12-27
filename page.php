@@ -21,7 +21,7 @@
        <?php
         include 'inc/conn.php';
         $id = $_GET["page_id"];
-        $stmt = $conn->query("SELECT * FROM tbl_post WHERE post_id = $id");
+        $stmt = $conn->query("SELECT * FROM `tbl_post` INNER JOIN tbl_user ON tbl_user.user_id = tbl_post.post_by WHERE post_id = $id");
         $stmt->execute();
         $re = $stmt->fetch(PDO::FETCH_ASSOC);
        ?>
@@ -30,7 +30,7 @@
             <div class="card-body bg-success bg-opacity-25  text-dark">
               <h6 class="fw-semibold"><?=$re['post_title']?></h6>
               <p class="card-text "><?=$re['post_detail']?></p>
-              <footer class="blockquote-footer mt-1"><?=$re['post_by']?> </footer>
+              <footer class="blockquote-footer mt-1"><?=$re['fname'].' '.$re['lname']?> </footer>
             </div>
             
         </div>
@@ -40,7 +40,7 @@
         </div>
         <?php
           $id = $_GET["page_id"];
-          $stmt_comment = $conn->query("SELECT * FROM tbl_comment WHERE comment_post = $id");
+          $stmt_comment = $conn->query("SELECT * FROM tbl_comment INNER JOIN tbl_user ON tbl_comment.comment_by = tbl_user.user_id WHERE comment_post = $id");
           $stmt_comment->execute();
           if($stmt_comment->rowCount() > 1){
             $comments = $stmt_comment->fetchALL();
@@ -49,7 +49,7 @@
                   <div class="col">
                       <div class="card mb-3" >
                           <div class="card-body  text-dark bg-light">
-                            <h6>ความเห็นจากคุณ : <?=$comment['comment_by']?></h6>
+                            <h6>ความเห็นจากคุณ : <?=$comment['fname'].' '.$comment['lname']?></h6>
                             <p class="card-text"><?=$comment['comment_msg']?></p>
                             <button type="button" class="btn float-end"><i class="fa-regular fa-trash-can"></i></button>
                           </div>
