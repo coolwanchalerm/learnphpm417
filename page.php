@@ -42,7 +42,7 @@
           $id = $_GET["page_id"];
           $stmt_comment = $conn->query("SELECT * FROM tbl_comment INNER JOIN tbl_user ON tbl_comment.comment_by = tbl_user.user_id WHERE comment_post = $id");
           $stmt_comment->execute();
-          if($stmt_comment->rowCount() > 1){
+          if($stmt_comment->rowCount() > 0){
             $comments = $stmt_comment->fetchALL();
               foreach($comments as $comment){ ?>
               <div class="row">
