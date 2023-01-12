@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 07:01 AM
+-- Generation Time: Jan 12, 2023 at 07:31 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -35,6 +35,13 @@ CREATE TABLE `tbl_comment` (
   `comment_post` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tbl_comment`
+--
+
+INSERT INTO `tbl_comment` (`comment_id`, `comment_msg`, `comment_by`, `comment_status`, `comment_post`) VALUES
+(6, 'อิหลีติ', 2, 1, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -46,9 +53,15 @@ CREATE TABLE `tbl_post` (
   `post_title` varchar(100) NOT NULL,
   `post_detail` varchar(100) NOT NULL,
   `post_by` int(2) NOT NULL,
-  `post_date` date NOT NULL DEFAULT current_timestamp(),
   `post_status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_post`
+--
+
+INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_detail`, `post_by`, `post_status`) VALUES
+(15, 'หมายายมีกัดหอยยายมา', 'หมายายมีกัดหอยยายมาหมายายมีกัดหอยยายมาหมายายมีกัดหอยยายมาหมายายมีกัดหอยยายมา', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -103,13 +116,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
