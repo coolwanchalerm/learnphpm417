@@ -3,10 +3,10 @@
           <a href="index.php" class="navbar-brand text-light">ศาลาโสเหล่</a>
           <div class="d-flex" role="search">
             <?php if(isset($_SESSION['userLogin'])){ ?>
-              <a class="btn btn-outline-light" href="post.php">
+              <a class="btn btn-outline-light" href="post.php" style="margin-right: 10px">
                 <i class="fa-solid fa-comments"></i> สร้างโพสต์ใหม่
               </a>
-              <a class="btn  btn-outline-danger" href="inc/logout.php">
+              <a class="btn  btn-danger" href="inc/logout.php" >
               <i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ
               </a>
           <?php  }else { ?>

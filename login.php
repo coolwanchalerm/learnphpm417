@@ -30,15 +30,15 @@
                 <div class="mb-3">
                   <label  class="form-label">Username</label>
                   <input type="text" name="username" class="form-control" >
-                  <div  class="form-text text-danger">error msg</div>
+                  
                 </div>
                 <div class="mb-3">
                   <label  class="form-label">Password</label>
                   <input type="password" name="password" class="form-control">
-                  <div  class="form-text text-danger">error msg</div>
+                  
                 </div>
                 <div class="mb-3 ">
-                  <span>หากคุณยังไม่เป็นสมาชิก <a href="register.html">คลิกที่นี่</a> เพื่อสมัครสมาชิก</span>
+                  <span>หากคุณยังไม่เป็นสมาชิก <a href="register.php">คลิกที่นี่</a> เพื่อสมัครสมาชิก</span>
                 </div>
                 <button type="submit" name="submit" class="btn btn-success">เข้าสู่ระบบ</button>
               </form>
