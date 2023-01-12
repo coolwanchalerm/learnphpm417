@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <?php 
+    session_start();
+
   include 'inc/conn.php';
   include 'inc/header.php';
   ?>
@@ -20,21 +22,22 @@
         </div>
         <div class="container mt-5">
           <div class="row p-5 border border-success rounded-2 shadow-lg">  
-            <form action="#" method="post">
+            <form action="addpost.php" method="post">
                   <div class="mb-3">
                     <label class="form-label">ชื่อเรื่อง</label>
-                    <input type="text" class="form-control"  placeholder="ชื่อเรื่อง">
+                    <input name="post_name" type="text" class="form-control"  placeholder="ชื่อเรื่อง">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">เนื้อเรื่องที่ต้องการโพสต์</label>
-                    <textarea class="form-control"  rows="3"></textarea>
+                    <textarea name="post_detail" class="form-control"  rows="3"></textarea>
                   </div>
                   <div class="mb-3">
                     <label class="form-label">ชื่อผู้โพสต์</label>
-                    <input type="text" class="form-control"  placeholder="พิมพ์ชื่อ">
+                    <input value="<?=$_SESSION['userLoginName'];?>" type="text" disabled class="form-control"  placeholder="พิมพ์ชื่อ">
+                    <input value="<?=$_SESSION['userLoginID'];?>" type="hidden" name="post_by" >
                   </div>
                   <div class="clearfix">
-                    <button type="submit" class="btn  btn-success btn-lg float-end">โพสต์</button>
+                    <button name="submit" type="submit" class="btn  btn-success btn-lg float-end">โพสต์</button>
                   </div>  
             </form>
           </div>

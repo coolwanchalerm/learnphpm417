@@ -24,11 +24,12 @@
                 header("Location:../index.php");
             $_SESSION['userLogin'] = "admin";
             $_SESSION['userLoginName'] = $row['fname'].' '.$row['lname'];
-
+            $_SESSION['userLoginID'] = $row['user_id'];
             } else {
                 header("Location: ../index.php");
                 $_SESSION['userLogin'] = "user";
                 $_SESSION['userLoginName'] = $row['fname'].' '.$row['lname'];
+                $_SESSION['userLoginID'] = $row['user_id'];
             }
             exit;
         } else {
