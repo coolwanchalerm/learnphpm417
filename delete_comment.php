@@ -16,8 +16,6 @@ include 'inc/conn.php';
       $stmt_comment->execute();
     
       if ($stmt_comment) {
-        // $_SESSION['success'] = 'ลบข้อมูลสำเร็จ..';
-        // header("refresh:0; url=page.php?page_id=$id");
         header('Location: ' . $_SERVER['HTTP_REFERER']);
       }
     }

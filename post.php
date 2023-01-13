@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 <?php 
-    session_start();
-
   include 'inc/conn.php';
   include 'inc/header.php';
   ?>

@@ -13,3 +13,4 @@
         font-family: 'Mali', cursive;
     }
   </style>
+  <?php session_start(); ?>

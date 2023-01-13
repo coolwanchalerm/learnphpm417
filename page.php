@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <?php
-session_start();
 include 'inc/conn.php';
 include 'inc/header.php';
 ?>
@@ -78,7 +77,7 @@ include 'inc/header.php';
         <div class="col">
           <form action="addComment.php" method="post">
             <div class="mb-3">
-              <textarea name="comment_msg" class="form-control " placeholder="ข้อความ" rows="3"></textarea>
+              <textarea name="comment_msg" class="form-control " placeholder="ข้อความ" rows="3" required ></textarea>
             </div>
             <div class="mb-3">
               <input value="<?= $_SESSION['userLoginName']; ?>" type="text" disabled class="form-control" placeholder="พิมพ์ชื่อ">
