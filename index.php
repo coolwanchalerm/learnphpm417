@@ -45,8 +45,21 @@ if (isset($_GET['update'])) {
   $stmt_updatePost->execute();
 
   if ($stmt_updatePost) {
-    $_SESSION['success'] = 'ลบข้อมูลสำเร็จ..';
-    header("refresh:0; url=index.php");
+    
+    echo "
+    <script>
+        $(function() {
+            
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                );
+        });
+    </script>
+    ";
+    // $_SESSION['success'] = 'ลบข้อมูลสำเร็จ..';
+    // header("refresh:0; url=index.php");
   }
 }
 ?>
@@ -102,6 +115,7 @@ if (isset($_GET['update'])) {
               <div class="row">
                 <div class="col">
                   <div class="card-body">
+                  
                     <h5 class="card-title"><?= $re['post_title'] ?></h5>
                     <p class="card-text"><?= $re['post_detail'] ?></p>
                     <a href="page.php?page_id=<?= $re['post_id'] ?>" class="btn btn-success">อ่านบทความ</a>
